@@ -11,6 +11,11 @@ use crate::{
     state::{Crowdsale, CrowdsaleStatus},
 };
 
+/**
+ * Create the crowdsale
+ * @param id: This will be the ID of the crowdsale
+ * @param cost: Cost of 1 token
+ */
 pub fn create_crowdsale(ctx: Context<CreateCrowdsale>, id: Pubkey, cost: u32) -> Result<()> {
     let crowdsale = &mut ctx.accounts.crowdsale;
     crowdsale.id = id;
@@ -23,7 +28,6 @@ pub fn create_crowdsale(ctx: Context<CreateCrowdsale>, id: Pubkey, cost: u32) ->
     msg!("Crowdsale created!");
 
     Ok(())
-
 }
 
 #[derive(Accounts)]
